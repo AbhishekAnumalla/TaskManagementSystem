@@ -1,0 +1,54 @@
+﻿@model SemiApprenticeship.Entities.Users
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add</h1>
+
+<h4>Users</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserFullName" class="control-label" >User Name <span class="star"> *</span></label>
+                <input asp-for="UserFullName" class="form-control" required/>
+                <span asp-validation-for="UserFullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LoginName" class="control-label">Login Name <span class="star"> *</span></label>
+                <input asp-for="LoginName" class="form-control" required/>
+                <span asp-validation-for="LoginName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remarks" class="control-label"></label>
+                <input asp-for="Remarks" class="form-control" />
+                <span asp-validation-for="Remarks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Users">Back to Users List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <style>
+        .star {
+            color: red;
+        }
+    </style>
+}

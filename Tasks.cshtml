@@ -1,0 +1,79 @@
+﻿@model IEnumerable<SemiApprenticeship.Entities.Tasks>
+
+@{
+    ViewData["Title"] = "Tasks";
+}
+<br />
+<h1>Task List</h1>
+<br />
+
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.taskId)*@
+                TaskId
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.description)*@
+                Description
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.dueDate)*@
+                DueDate
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.requestedBy)*@
+                RequestedBy
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.requestedOn)*@
+                RequestedOn
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.remarks)*@
+                Remarks
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.action)*@
+                Action
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.taskId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.requestedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.requestedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.action)
+            </td>
+            <td>
+                @Html.ActionLink("Approve","Approve", new { id=item.taskId }) |
+                @Html.ActionLink("Reject", "Reject", new {  id=item.taskId  }) 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
